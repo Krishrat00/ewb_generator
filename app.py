@@ -268,4 +268,4 @@ if __name__ == "__main__":
     os.makedirs("static/captchas", exist_ok=True)
     os.makedirs("static/previews", exist_ok=True)
     port = int(os.environ.get("PORT", 5099))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=False)
