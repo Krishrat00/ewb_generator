@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>GST E-Way Bill Login</title></head>
+<body>
+<h2>Login to GST E-Way Portal</h2>
+{% if error %}
+  <p style="color:red">{{ error }}</p>
+{% endif %}
+<form method="POST" action="/login">
+  User ID: <input type="text" name="userid" required><br>
+  Password: <input type="password" name="password" required><br>
+  <img src="{{ captcha_url }}" alt="CAPTCHA"><br>
+  Enter CAPTCHA: <input type="text" name="captcha" required><br>
+  <input type="submit" value="Login">
+</form>
+</body>
+</html>

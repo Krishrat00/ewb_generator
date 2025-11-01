@@ -1,0 +1,8 @@
+_pycache_/*
+.vscode/*
+venv/*
+*._pycache_*/
+*.cpython*
+*.pdf
+static/*
+logs/*

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>E-Way Bill Details</title></head>
+<body>
+<h2>Enter E-Way Bill Details</h2>
+<form method="POST" action="/generate">
+  Document No: <input type="text" name="doc_no" required><br>
+  Document Date: <input type="date" name="doc_date" required><br>
+  Supplier GSTIN: <input type="text" name="supplier_gstin" required><br>
+  Recipient GSTIN: <input type="text" name="recipient_gstin" required><br>
+  Product Name: <input type="text" name="product_name" required><br>
+  Quantity: <input type="number" name="quantity" min="1" required><br>
+  Vehicle No: <input type="text" name="vehicle_no" required><br>
+  <input type="submit" value="Generate E-Way Bill">
+</form>
+<a href="/logout">Logout</a>
+</body>
+</html>
