@@ -17,19 +17,14 @@ logger = logging.getLogger("GSTAutomator")
 class GSTAutomator:
     def __init__(self, headless=True):
         self.driver = None
-        self.setup_driver(headless=headless)
+        self.setup_driver(headless=False)
 
-    def setup_driver(self, headless=True):
+    def setup_driver(self, headless=False):
         print("⚙️ Setting up Selenium WebDriver...")
         download_dir = os.path.abspath("Downloads")
         os.makedirs(download_dir, exist_ok=True)
 
         chrome_opts = webdriver.ChromeOptions()
-        if headless:
-            # from pyvirtualdisplay import Display
-            self.display = Display(visible=0, size=(1280, 1024))
-            self.display.start()
-            print("🖥️ Virtual display started")
 
         if headless:
             chrome_opts.add_argument("--headless=new")
@@ -127,6 +122,7 @@ class GSTAutomator:
                     err = driver.find_element(By.ID, "lblError").text.strip()
                 except:
                     err = "Invalid credentials or captcha."
+                print("Could not find error message on login failure.")
                 self.driver.get("https://ewaybillgst.gov.in/Login.aspx")
                 WebDriverWait(driver, 8).until(EC.presence_of_element_located((By.ID, "imgcaptcha")))
                 return {"success": False, "error": err}
